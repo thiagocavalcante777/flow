@@ -1,0 +1,45 @@
+doctrine:
+    dbal:
+        default_connection: default
+        connections:
+            default:
+                dbname: '%env(resolve:DATABASE_NAME)%'
+                host: '%env(resolve:DATABASE_HOST)%'
+                port: '%env(resolve:DATABASE_PORT)%'
+                password: '%env(resolve:DATABASE_PASSWORD)%'
+                user: '%env(resolve:DATABASE_USER)%'
+                driver: '%env(resolve:DATABASE_DRIVER)%'
+                server_version: '%env(resolve:DATABASE_VERSION)%'
+                charset: '%env(resolve:DATABASE_ENCODE)%'
+                logging: '%kernel.debug%'
+                mapping_types:
+                    enum: string
+    orm:
+        auto_generate_proxy_classes: true
+        default_entity_manager: default
+        entity_managers:
+            default:
+                dql:
+                    string_functions:
+                        STRING_AGG: 'App\Infrastructure\Functions\StringAgg'
+                        DAY: DoctrineExtensions\Query\Mysql\Day
+                        MONTH: DoctrineExtensions\Query\Mysql\Month
+                        YEAR: DoctrineExtensions\Query\Mysql\Year
+                        DATE: DoctrineExtensions\Query\Mysql\Date
+                        HOUR: DoctrineExtensions\Query\Mysql\Hour
+                        MINUTE: DoctrineExtensions\Query\Mysql\Minute
+                        SECOND: DoctrineExtensions\Query\Mysql\Second
+
+                connection: default
+                mappings:
+                    AppDomainModel:
+                        is_bundle: false
+                        type: xml
+                        dir: '%kernel.project_dir%/config/infrastructure/persistence/doctrine'
+                        prefix: 'App\Domain\Model'
+                        alias: AppDomainModel
+
+
+
+
+

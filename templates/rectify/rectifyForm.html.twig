@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Retificação de Registro{% endblock %}
+
+{% block body %}
+
+    <div class="container area-screen">
+        <div class="row">
+                <form action="/rectify" class="form-rectify">
+
+                    <!--inputs hidden -->
+                    <input name="id" value="{{ TimeTask.id }}" hidden>
+                    <input id="timeTask_id" type="hidden" name="timeTask_id" value="{{ TimeTask.id }}">
+                    <input id="startTimeTask" type="hidden" >
+                    <input id="collaborator_id" type="hidden" name="collaborator_id" value="{{ TimeTask.collaborator.id  }}">
+                    <input id="systemUserId" type="hidden" name="systemUserId" value="{{ TimeTask.collaborator.systemUserId }}">
+                    <input id="collaboratorId" type="hidden" name="collaboratorId" value="{{ TimeTask.collaborator.collaboratorId }}">
+                    <input id="project_id" type="hidden" name="project_id" value="{{ TimeTask.project.id }}">
+                    <input id="projectId" type="hidden" name="projectId" value="{{ TimeTask.project.projectId }}">
+                    <input id="modelTid_id" type="hidden" name="modelTid_id" value="{{ TimeTask.modelTid.id }}">
+                    <input id="modelTidId" type="hidden" name="modelTidId" value="{{ TimeTask.modelTid.modelTidId }}">
+                    <!--ends inputs hidden -->
+
+                    <div class="mb-3">
+                        <label>Colaborador</label>
+                        <input name="collaboratorName" type="text" class="form-control" value="{{ TimeTask.collaborator.name }}" readonly>
+                    </div>
+
+                    <div class="mb-3">
+                        <label >Projeto</label>
+                        <input name="projectReference" type="text" class="form-control" value="{{ TimeTask.project.reference }}" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label >Model TID/Tarefa</label>
+                        <input name="modelTidDesignation" type="text" class="form-control" value="{{ TimeTask.modelTid.designation }}" readonly>
+                    </div>
+
+                    <div class="mb-3">
+                        <label >Inicio de Tarefa</label>
+                        <input name="startTimeTask" id="startTimeTask" type="text" class="form-control" name="startTimeTask" value="{{ TimeTask.startTime|date('d/m/Y H:i') }}" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label >Fim de Tarefa</label>
+                        <input required name="endTimeTask" id="endTimeTask" type="datetime-local" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-rectify btn-primary">RETIFICAR</button>
+                </form>
+        </div>
+    </div>
+{% endblock %}

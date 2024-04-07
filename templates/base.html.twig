@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Open Factory - Flow{% endblock %}</title>
+        <link rel="shortcut icon" href="{{ asset('imgs/favicon.png') }}" />
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('assets/styles/bootstrap.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/styles/custom.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/styles/custom.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/fontawesome/css/fontawesome.css') }}">
+            <script src="{{ asset('assets/fontawesome/js/fontawesome.js') }}" crossorigin="anonymous"></script>
+        {% endblock %}
+    </head>
+    {% block alert %}
+
+
+    {% if app.request.server.get('APP_ENV') != 'prod' %}
+        <style>
+            #is-not-prod-alert {
+                z-index: 99999;
+                position: absolute;
+                width: 100%;
+                top: 0%;
+                text-align: center;
+                font-size: 30px;
+                background-color: #ff8a80 ;
+            }
+        </style>
+        <div id='is-not-prod-alert' class="alert alert-warning alert-dismissible fade show" role="alert">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <strong>Attention</strong> you are in an approval environment.
+        <button type="button\" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+ {% endblock %}
+
+    <body>
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                    <h2>OpenFactory - Flow</h2>
+                </a>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Initial<i class="fa-solid fa-pencil"></i></a>
+                        </li>
+                        {% if is_granted('ROLE_SUPERVISOR') %}
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="/monitor">Monitor</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+
+                <div class="collapse navbar-collapse  justify-content-end">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    <div class="container-fluid">
+        <div class="ajax_load">
+            <div class="ajax_load_box">
+                <div class="ajax_load_box_circle"></div>
+                <p class="ajax_load_box_title">Aguarde, carregando...</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div id="alert-request-processed"  class="alert alert-request-processed alert-warning alert-dismissible fade show" role="alert">
+        </div>
+
+        <div id="alert-validation-time-task" class="alert alert-validation-time-task alert-warning alert-dismissible fade show" role="alert">
+        </div>
+    </div>
+        {% block body %}
+
+
+        {% endblock %}
+
+    {% block javascripts %}
+        <script src="{{ asset('assets/js/bootstrap.bundle.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/jquery.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/jquery.form.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/jquery.mask.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/scripts.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/masks.js') }}" type="text/javascript"></script>
+    {% endblock %}
+    </body>
+</html>

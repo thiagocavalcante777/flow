@@ -1,0 +1,41 @@
+{% extends 'base_login.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+
+{% block body %}
+    {% if error %}
+        <div class="container">
+            <div class="alert alert-login alert-warning alert-dismissible fade show" role="alert">
+{#                {{ error.messageKey|trans(error.messageData, 'security') }}#}
+                Credenciais Inválidas
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="row form-row" >
+        <form id="form-login" action="{{ path('app_login') }}" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <div class="text-center">
+                <h1 style="color: #ffffff">Open Factory</h1>
+                <h2 style="color: #ffffff">Flow</h2>
+            </div><br>
+            <hr>
+            <h3 style="color: #ffffff">login</h3><br>
+            <div class="mb-3">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="_username" class="form-control"  value="{{ last_username }}"/>
+            </div>
+            <div class="mb-3">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="_password" class="form-control" />
+            </div>
+
+            <input type="hidden" name="_target_path" value="/"/>
+            <div class="mb-3">
+            <button type="submit" class="btn-login btn btn-primary">LOGIN</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

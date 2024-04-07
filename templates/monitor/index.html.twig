@@ -1,0 +1,41 @@
+{% extends 'base_monitor.html.twig' %}
+
+{% block title %} Monitor {% endblock %}
+
+{% block body %}
+
+
+    <div class="container-fluid">
+        <form>
+            <input  type="hidden" name="rowsTotal" id="rowsTotal" value="">
+        </form>
+
+        <table class="table-monitor-header">
+            <thead>
+            <tr>
+                <th style="text-align: center;font-size: 30px" colspan="9">MONITOR DE TAREFAS</th>
+            </tr>
+            <tr>
+                <th style="width: 5%" scope="col">#</th>
+                <th style="width: 10%" scope="col">Colaborador</th>
+                <th style="width: 15%" scope="col">Projeto</th>
+                <th style="width: 20%" scope="col">Tarefa</th>
+                <th style="width: 10%" scope="col">Inicio Tarefa</th>
+                <th style="width: 10%" scope="col">Fim Tarefa</th>
+                <th style="width: 10%" scope="col">Tempo Total</th>
+                <th style="width: 10%" scope="col">Status</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="container-fluid">
+        <div style="margin-top: 10vh">
+            <table class="table table-monitor">
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+{% endblock %}

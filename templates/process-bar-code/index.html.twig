@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Open Factory - Flow
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <form action="process-bar-code" class="form-ajax form-barcode">
+
+            <div class="form-group">
+                <div class="time-task-data">
+                    <!--inputs hidden -->
+                    <input id="systemUserId" type="hidden" name="systemUserId" value="">
+                    <input id="collaboratorId" type="hidden" name="collaboratorId" value="">
+                    <input id="projectId" type="hidden" name="projectId" value="">
+                    <input id="projectDesignation" type="hidden" name="projectId" value="">
+                    <input id="modelTaskId" type="hidden" name="modelTidId" value="">
+                    <input id="status" type="hidden" name="status" value="">
+                    <!--ends inputs hidden -->
+                    <div class="row">
+                        <label>Collaborator: </label>
+                        <input readonly id="collaboratorName" value="">
+                        <label>Project: </label>
+                        <input readonly id="projectReference" value="">
+                        <label>Model Task: </label>
+                        <input readonly id="modelTaskDesignation" value="">
+                    </div>
+                </div>
+                <div class="time-task-review">
+                    <div class="row">
+                        <label id="startTimeTaskLabel">Inicio Tarefa : </label>
+                        <input readonly id="startTimeTask" name="startTimeTask" value="">
+                        <label readonly id="endTimeTaskLabel">Fim Tarefa : </label>
+                        <input id="endTimeTask" name="endTimeTask" value="" >
+                    </div>
+                     <div id="totalTimeDivision">
+                         <div class="line"></div>
+                         <span class="titleDivision">Totais</span>
+                         <div class="row">
+                             <label id="totalTimeLabel">Total Tempo: </label>
+                             <input readonly id="totalTime" value="">
+                         </div>
+                     </div>
+                    </div>
+                    <button action="process-bar-code" id="finalButton" class="btn btn-action final-btn" value="{action}">{ACTION}</button>
+                    <button id="btn-cancel"  class="btn">CANCEL</button>
+                    <button id="btn-leave-free"  class="btn">END TAASK</button>
+                    <div id="barCodeArea" class="barCodeArea">
+                        <div class="mx-auto" id="barcodeLabel">
+                            <label for="barCode">BAR CODE</label>
+                        </div>
+                        <input autocomplete="off" type="text" class="form-control" name= "barCodeInput" id="barCodeInput" aria-describedby="barcodInputHelp" placeholder="READ BARCODE">
+                    </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

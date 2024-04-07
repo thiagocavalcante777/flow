@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Domain\Model\TimeTask" table="time_task">
+      <id name="id" type="integer" column="id">
+        <generator strategy="IDENTITY"/>
+      </id>
+      <many-to-one field="collaborator" target-entity="Collaborator" fetch="EAGER">
+        <join-columns>
+          <join-column name="collaborator_id" referenced-column-name="collaborator_id"/>
+        </join-columns>
+      </many-to-one>
+      <many-to-one field="systemUser" target-entity="Collaborator" fetch="EAGER">
+        <join-columns>
+          <join-column name="system_user_id" referenced-column-name="system_user_id"/>
+        </join-columns>
+      </many-to-one>
+      <many-to-one field="project" target-entity="Project" fetch="EAGER">
+        <join-columns>
+          <join-column name="project_id" referenced-column-name="project_id"/>
+        </join-columns>
+      </many-to-one>
+      <many-to-one field="modelTask" target-entity="ModelTask" fetch="EAGER">
+        <join-columns>
+          <join-column name="model_task_id" referenced-column-name="model_task_id"/>
+        </join-columns>
+      </many-to-one>
+      <field name="startTime" type="datetime" column="start_time" nullable="false"/>
+      <field name="endTime" type="datetime" column="end_time" nullable="true"/>
+      <field name="status" type="string" column="status" nullable="true">
+        <options>
+          <option name="fixed"/>
+          <option name="comment">O = OPEN, C = CLOSED,A = ABORTED, S=Synchronized</option>
+        </options>
+      </field>
+      <field name="totalTime" type="string" column="total_time" nullable="true"/>
+  </entity>
+</doctrine-mapping>
