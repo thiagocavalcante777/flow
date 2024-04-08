@@ -144,7 +144,7 @@
         ]
     },
     "symfony/asset": {
-        "version": "v6.0.3"
+        "version": "v6.4.0"
     },
     "symfony/cache": {
         "version": "v6.0.6"
@@ -213,10 +213,10 @@
         ]
     },
     "symfony/form": {
-        "version": "v6.0.5"
+        "version": "v6.4.0"
     },
     "symfony/framework-bundle": {
-        "version": "6.0",
+        "version": "6.4",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "master",
@@ -398,7 +398,7 @@
         "version": "v6.0.3"
     },
     "symfony/translation": {
-        "version": "6.0",
+        "version": "6.4",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "master",
@@ -414,7 +414,7 @@
         "version": "v3.0.0"
     },
     "symfony/twig-bridge": {
-        "version": "v6.0.5"
+        "version": "v6.4.0"
     },
     "symfony/twig-bundle": {
         "version": "6.0",
