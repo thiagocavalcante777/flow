@@ -5,25 +5,15 @@ namespace App\Domain\Model;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    /**
-     * @var int
-     */
     private int $id;
 
-    /**
-     * @var string
-     */
-    private $username;
+    private string $username;
 
-    /**
-     * @var array
-     */
-    private $roles = [];
+    private array $roles = [];
 
-    private $password;
+    private string $password;
 
     public function getId(): ?int
     {
