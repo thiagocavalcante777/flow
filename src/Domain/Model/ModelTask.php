@@ -4,29 +4,14 @@ namespace App\Domain\Model;
 
 class ModelTask
 {
-    /**
-     * @var int
-     */
-    private $id;
+    private int $id;
 
-    /**
-     * @var int|null
-     */
-    private $modelTaskId;
+    private ?int $modelTaskId;
 
-    /**
-     * @var string|null
-     */
-    private $designation;
+    private ?string $designation;
 
-    /**
-     * @var string|null
-     */
-    private $barCodeString;
+    private ?string $barCodeString;
 
-    /**
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;
@@ -42,33 +27,21 @@ class ModelTask
         $this->modelTaskId = $modelTaskId;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDesignation(): ?string
     {
         return $this->designation;
     }
 
-    /**
-     * @param string|null $designation
-     */
     public function setDesignation(?string $designation): void
     {
         $this->designation = $designation;
     }
 
-    /**
-     * @return string|null
-     */
     public function getBarCodeString(): ?string
     {
         return $this->barCodeString;
     }
 
-    /**
-     * @param string|null $barCodeString
-     */
     public function setBarCodeString(?string $barCodeString): void
     {
         $this->barCodeString = $barCodeString;
