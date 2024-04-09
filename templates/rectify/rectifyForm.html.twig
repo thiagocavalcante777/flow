@@ -1,13 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Retificação de Registro{% endblock %}
+{% block title %}Registration Rectification{% endblock %}
 
 {% block body %}
-
     <div class="container area-screen">
         <div class="row">
                 <form action="/rectify" class="form-rectify">
-
                     <!--inputs hidden -->
                     <input name="id" value="{{ TimeTask.id }}" hidden>
                     <input id="timeTask_id" type="hidden" name="timeTask_id" value="{{ TimeTask.id }}">
@@ -20,30 +18,27 @@
                     <input id="modelTid_id" type="hidden" name="modelTid_id" value="{{ TimeTask.modelTid.id }}">
                     <input id="modelTidId" type="hidden" name="modelTidId" value="{{ TimeTask.modelTid.modelTidId }}">
                     <!--ends inputs hidden -->
-
                     <div class="mb-3">
-                        <label>Colaborador</label>
+                        <label>Collaborator</label>
                         <input name="collaboratorName" type="text" class="form-control" value="{{ TimeTask.collaborator.name }}" readonly>
                     </div>
-
                     <div class="mb-3">
-                        <label >Projeto</label>
+                        <label >Project</label>
                         <input name="projectReference" type="text" class="form-control" value="{{ TimeTask.project.reference }}" readonly>
                     </div>
                     <div class="mb-3">
-                        <label >Model TID/Tarefa</label>
+                        <label >Model Tasf</label>
                         <input name="modelTidDesignation" type="text" class="form-control" value="{{ TimeTask.modelTid.designation }}" readonly>
                     </div>
-
                     <div class="mb-3">
-                        <label >Inicio de Tarefa</label>
+                        <label >Start Task</label>
                         <input name="startTimeTask" id="startTimeTask" type="text" class="form-control" name="startTimeTask" value="{{ TimeTask.startTime|date('d/m/Y H:i') }}" readonly>
                     </div>
                     <div class="mb-3">
-                        <label >Fim de Tarefa</label>
+                        <label >End Task</label>
                         <input required name="endTimeTask" id="endTimeTask" type="datetime-local" class="form-control">
                     </div>
-                    <button type="submit" class="btn btn-rectify btn-primary">RETIFICAR</button>
+                    <button type="submit" class="btn btn-rectify btn-primary">RECTIFY</button>
                 </form>
         </div>
     </div>

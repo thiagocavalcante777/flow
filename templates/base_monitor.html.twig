@@ -11,7 +11,6 @@
     </head>
     {% block alert %}
 
-
         {% if app.request.server.get('APP_ENV') != 'prod' %}
             <style>
                 #is-not-prod-alert {
@@ -38,7 +37,7 @@
                 <div class="ajax_load">
                     <div class="ajax_load_box">
                         <div class="ajax_load_box_circle"></div>
-                        <p class="ajax_load_box_title">Aguarde, carregando...</p>
+                        <p class="ajax_load_box_title">Wait, loading...</p>
                     </div>
                 </div>
             </div>
@@ -47,7 +46,7 @@
                 <div class="container-fluid">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <a class="navbar-brand" href="#">
-                            <img src="{{ asset('imgs/logo.png') }}" width="300" height="auto" class="d-inline-block align-top" alt="Promaint Factory">
+                            <h2>OpenFactory - Flow</h2>
                         </a>
                     </nav>
                 </div>

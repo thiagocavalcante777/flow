@@ -89,7 +89,7 @@ class RectifyTimeTaskController extends AbstractController
 
             if ($result) {
                 $arrResponse = [
-                    'message' => 'Registro Retificado com Sucesso!',
+                    'message' => 'Registration Rectified Successfully!',
                     'typeMessage' => 'success',
                     'redirect' => '/registers-to-rectify'
                 ];
@@ -97,7 +97,7 @@ class RectifyTimeTaskController extends AbstractController
 
             if (!$result) {
                 $arrResponse = [
-                    'message' => 'Houve um Erro Contate o Suporte',
+                    'message' => 'There was an error Contact Support',
                     'typeMessage' => 'success',
                 ];
             }
@@ -109,7 +109,7 @@ class RectifyTimeTaskController extends AbstractController
         }catch (Throwable $e) {
 
             $arrResponse = [
-                'message' => 'Houve um Erro Contate o Suporte',
+                'message' => 'There was an error Contact Support',
                 'typeMessage' => 'warning',
             ];
 

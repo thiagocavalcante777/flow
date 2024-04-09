@@ -29,23 +29,23 @@
                 </div>
                 <div class="time-task-review">
                     <div class="row">
-                        <label id="startTimeTaskLabel">Inicio Tarefa : </label>
+                        <label id="startTimeTaskLabel">Start Task : </label>
                         <input readonly id="startTimeTask" name="startTimeTask" value="">
-                        <label readonly id="endTimeTaskLabel">Fim Tarefa : </label>
+                        <label readonly id="endTimeTaskLabel">End Task : </label>
                         <input id="endTimeTask" name="endTimeTask" value="" >
                     </div>
                      <div id="totalTimeDivision">
                          <div class="line"></div>
-                         <span class="titleDivision">Totais</span>
+                         <span class="titleDivision">Totals</span>
                          <div class="row">
-                             <label id="totalTimeLabel">Total Tempo: </label>
+                             <label id="totalTimeLabel">Total Time: </label>
                              <input readonly id="totalTime" value="">
                          </div>
                      </div>
                     </div>
                     <button action="process-bar-code" id="finalButton" class="btn btn-action final-btn" value="{action}">{ACTION}</button>
                     <button id="btn-cancel"  class="btn">CANCEL</button>
-                    <button id="btn-leave-free"  class="btn">END TAASK</button>
+                    <button id="btn-leave-free"  class="btn">END TASK</button>
                     <div id="barCodeArea" class="barCodeArea">
                         <div class="mx-auto" id="barcodeLabel">
                             <label for="barCode">BAR CODE</label>
@@ -55,5 +55,4 @@
             </div>
         </form>
     </div>
-
 {% endblock %}

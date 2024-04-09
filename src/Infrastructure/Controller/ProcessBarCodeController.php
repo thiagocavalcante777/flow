@@ -77,7 +77,7 @@ class ProcessBarCodeController extends AbstractController
 
                   $arrResponse = [
                       'timeTask' => $timeTask,
-                      'message' => 'Tarefa Antiga Aberta',
+                      'message' => 'Old Open Task',
                       'typeMessage' => 'warning',
                       'isOld' => true
                   ];
@@ -99,7 +99,7 @@ class ProcessBarCodeController extends AbstractController
       }catch (Throwable $e) {
 
           $arrResponse = [
-              'message' => 'Houve um Erro Contate o Suporte',
+              'message' => 'There was an error Contact Support',
               'typeMessage' => 'warning',
           ];
 
@@ -130,7 +130,7 @@ class ProcessBarCodeController extends AbstractController
                 $result = $this->timeTaskService->startTimeTask($timeTaskDTO);
 
                 $arrResponse = [
-                    'message' => 'Tarefa Iniciada Com Sucesso',
+                    'message' => 'Task started successfully',
                     'typeMessage' => 'success'
                 ];
 
@@ -144,7 +144,7 @@ class ProcessBarCodeController extends AbstractController
                 $result = $this->timeTaskService->finishingTimeTask($timeTaskDTO);
 
                 $arrResponse = [
-                    'message' => 'Tarefa Fechada Com Sucesso',
+                    'message' => 'Task Closed Successfully',
                     'typeMessage' => 'success'
                 ];
 
@@ -156,7 +156,7 @@ class ProcessBarCodeController extends AbstractController
         }catch (Throwable $e){
             dd($e->getMessage());
             $arrResponse = [
-                'message' => 'Houve um Erro Contate o Suporte',
+                'message' => 'There was an error Contact Support',
                 'typeMessage' => 'warning',
             ];
 
